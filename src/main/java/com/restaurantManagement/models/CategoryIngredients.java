@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,5 +25,5 @@ public class CategoryIngredients {
     private Instant updatedAt;
 
     @OneToMany(mappedBy = "categoryIngredients")
-    private List<Ingredients> ingredients;
+    private List<Ingredients> ingredients = new ArrayList<>();
 }

@@ -1,6 +1,7 @@
 package com.restaurantManagement.models;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.*;
@@ -23,5 +24,5 @@ public class Units {
     private Instant updatedAt;
 
     @OneToMany(mappedBy = "units")
-    private List<Ingredients> ingredients;
+    private List<Ingredients> ingredients = new ArrayList<>();
 }
