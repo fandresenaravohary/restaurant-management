@@ -19,6 +19,7 @@ public class Units {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String name;
     private String abbreviation;
     private Instant createdAt;
     private Instant updatedAt;
