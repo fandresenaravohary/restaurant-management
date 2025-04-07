@@ -5,18 +5,18 @@ import com.restaurantManagement.dto.UnitsSummarized;
 import com.restaurantManagement.mapper.UnitsMapper;
 import com.restaurantManagement.models.Units;
 import com.restaurantManagement.repository.UnitsRepository;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class UnitServiceImpl implements UnitService {
 
-    private UnitsRepository unitsRepository;
-    private UnitsMapper unitsMapper;
+    private final UnitsRepository unitsRepository;
+    private final UnitsMapper unitsMapper;
 
     @Override
     public UnitsSummarized save(UnitsDto unitsDto) {
