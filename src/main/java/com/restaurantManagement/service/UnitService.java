@@ -10,4 +10,5 @@ import java.util.List;
 public interface UnitService {
     UnitsSummarized save(UnitsDto unitsDto);
     List<UnitsSummarized> findAll();
+    void delete(Long id);
 }

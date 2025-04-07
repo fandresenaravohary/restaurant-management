@@ -4,7 +4,6 @@ import com.restaurantManagement.dto.UnitsDto;
 import com.restaurantManagement.dto.UnitsSummarized;
 import com.restaurantManagement.service.UnitService;
 import jakarta.validation.Valid;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +28,12 @@ public class UnitsController {
     public ResponseEntity<List<UnitsSummarized>> getAllUnits() {
         List<UnitsSummarized> units = unitService.findAll();
         return ResponseEntity.ok(units);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUnit(@PathVariable Long id) {
+        unitService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }
 

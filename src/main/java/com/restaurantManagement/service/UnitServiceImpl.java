@@ -32,4 +32,13 @@ public class UnitServiceImpl implements UnitService {
                 .map(unitsMapper::convertToUnitsSummarized)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public void delete(Long id) {
+        if (unitsRepository.existsById(id)) {
+            unitsRepository.deleteById(id);
+        } else {
+            throw new RuntimeException("Unit not found with ID: " + id);
+        }
+    }
 }
