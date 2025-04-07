@@ -2,6 +2,7 @@ package com.restaurantManagement.service;
 
 import com.restaurantManagement.dto.UnitsDto;
 import com.restaurantManagement.dto.UnitsSummarized;
+import com.restaurantManagement.mapper.UnitsMapper;
 import com.restaurantManagement.models.Units;
 import com.restaurantManagement.repository.UnitsRepository;
 import lombok.AllArgsConstructor;
@@ -12,29 +13,16 @@ import org.springframework.stereotype.Service;
 public class UnitServiceImpl implements UnitService {
 
     private UnitsRepository unitsRepository;
+    private UnitsMapper unitsMapper;
 
     @Override
     public UnitsSummarized save(UnitsDto unitsDto) {
         Units unit;
 
-        if (unitsDto.getId() != null) {
-            unit = unitsRepository.findById(unitsDto.getId())
-                    .orElseThrow(() -> new IllegalArgumentException("Unit not found with ID: " + unitsDto.getId()));
-        } else {
-            unit = new Units();
-        }
-
-        unit.setName(unitsDto.getName());
-        unit.setAbbreviation(unitsDto.getAbbreviation());
+        unit = unitsMapper.toUnit(unitsDto);
 
         Units savedUnit = unitsRepository.save(unit);
 
-        return new UnitsSummarized(
-                savedUnit.getId(),
-                savedUnit.getName(),
-                savedUnit.getAbbreviation(),
-                savedUnit.getCreatedAt(),
-                savedUnit.getUpdatedAt()
-        );
+        return unitsMapper.toUnitsSummarized(savedUnit);
     }
 }
