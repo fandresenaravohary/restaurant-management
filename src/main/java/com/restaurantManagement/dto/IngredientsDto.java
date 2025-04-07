@@ -22,5 +22,6 @@ public class IngredientsDto {
     @NotNull(message = "Unit ID is required")
     private Long unitsId;
 
+    @NotNull(message = "Category ID is required")
     private Long categoryIngredientsId;
 }
