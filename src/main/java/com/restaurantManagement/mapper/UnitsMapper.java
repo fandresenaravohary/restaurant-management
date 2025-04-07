@@ -8,38 +8,29 @@ import org.springframework.stereotype.Component;
 @Component
 public class UnitsMapper {
 
-    private Units createUnitFromProperties(Long id, String name, String abbreviation) {
-        Units unit = new Units();
-        unit.setId(id);
-        unit.setName(name);
-        unit.setAbbreviation(abbreviation);
-        return unit;
-    }
-
-    public UnitsSummarized toUnitsSummarized(Units unit) {
+    public UnitsSummarized convertToUnitsSummarized(Units unit) {
         if (unit == null) {
             return null;
         }
-        return new UnitsSummarized(
-                unit.getId(),
-                unit.getName(),
-                unit.getAbbreviation(),
-                unit.getCreatedAt(),
-                unit.getUpdatedAt()
-        );
+
+        return UnitsSummarized.builder()
+                .id(unit.getId())
+                .name(unit.getName())
+                .abbreviation(unit.getAbbreviation())
+                .createdAt(unit.getCreatedAt())
+                .updatedAt(unit.getUpdatedAt())
+                .build();
     }
 
-    public Units toUnit(UnitsDto unitsDto) {
+    public Units convertToUnit(UnitsDto unitsDto) {
         if (unitsDto == null) {
             return null;
         }
-        return createUnitFromProperties(unitsDto.getId(), unitsDto.getName(), unitsDto.getAbbreviation());
-    }
 
-    public Units toUnitFromSummarized(UnitsSummarized unitsSummarized) {
-        if (unitsSummarized == null) {
-            return null;
-        }
-        return createUnitFromProperties(unitsSummarized.getId(), unitsSummarized.getName(), unitsSummarized.getAbbreviation());
+        return Units.builder()
+                .id(unitsDto.getId())
+                .name(unitsDto.getName())
+                .abbreviation(unitsDto.getAbbreviation())
+                .build();
     }
 }

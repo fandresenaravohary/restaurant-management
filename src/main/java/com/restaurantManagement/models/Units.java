@@ -5,16 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Units {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,3 +36,4 @@ public class Units {
         this.updatedAt = Instant.now();
     }
 }
+
