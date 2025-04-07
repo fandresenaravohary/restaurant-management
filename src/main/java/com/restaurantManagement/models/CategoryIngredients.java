@@ -22,7 +22,9 @@ public class CategoryIngredients {
     private Instant createdAt;
     private Instant updatedAt;
 
+    @Builder.Default
     @OneToMany(mappedBy = "categoryIngredients")
     private List<Ingredients> ingredients = new ArrayList<>();
 }
+
 

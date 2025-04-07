@@ -25,9 +25,12 @@ public class Menu {
     @ManyToOne
     @JoinColumn(name = "category_menu_id")
     private CategoryMenu categoryMenu;
+
     private Instant createdAt;
     private Instant updatedAt;
 
+    @Builder.Default
     @OneToMany(mappedBy = "menu")
     private List<MenuWithIngredients> menuWithIngredients = new ArrayList<>();
 }
+

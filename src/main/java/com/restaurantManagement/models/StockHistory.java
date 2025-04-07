@@ -19,10 +19,12 @@ public class StockHistory {
     @ManyToOne
     @JoinColumn(name = "stock_id")
     private Stock stock;
+
     private String operationType;
     private Double quantity;
     private Instant date;
     private Instant createAt;
     private Instant updateAt;
 }
+
 

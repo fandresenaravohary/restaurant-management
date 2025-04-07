@@ -28,13 +28,16 @@ public class Ingredients {
     @ManyToOne
     @JoinColumn(name = "category_ingredients_id")
     private CategoryIngredients categoryIngredients;
+
     private Instant createdAt;
     private Instant updatedAt;
 
+    @Builder.Default
     @OneToMany(mappedBy = "ingredient")
     private List<MenuWithIngredients> menuWithIngredients = new ArrayList<>();
 
     @OneToOne(mappedBy = "ingredient")
     private Stock stock;
 }
+
 

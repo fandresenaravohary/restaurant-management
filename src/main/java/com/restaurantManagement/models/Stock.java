@@ -21,10 +21,13 @@ public class Stock {
     @OneToOne
     @JoinColumn(name = "ingredient_id", unique = true)
     private Ingredients ingredient;
+
     private Double quantity;
     private Instant createdAt;
     private Instant updatedAt;
 
+    @Builder.Default
     @OneToMany(mappedBy = "stock")
     private List<StockHistory> stockHistories = new ArrayList<>();
 }
+

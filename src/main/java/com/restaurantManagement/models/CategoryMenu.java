@@ -22,6 +22,8 @@ public class CategoryMenu {
     private Instant createdAt;
     private Instant updatedAt;
 
+    @Builder.Default
     @OneToMany(mappedBy = "categoryMenu")
     private List<Menu> menu = new ArrayList<>();
 }
+

@@ -22,6 +22,7 @@ public class Units {
     private Instant createdAt;
     private Instant updatedAt;
 
+    @Builder.Default
     @OneToMany(mappedBy = "units")
     private List<Ingredients> ingredients = new ArrayList<>();
 
@@ -36,4 +37,5 @@ public class Units {
         this.updatedAt = Instant.now();
     }
 }
+
 

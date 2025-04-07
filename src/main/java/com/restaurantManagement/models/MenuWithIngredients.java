@@ -23,7 +23,9 @@ public class MenuWithIngredients {
     @ManyToOne
     @JoinColumn(name = "ingredient_id")
     private Ingredients ingredient;
+
     private Instant createdAt;
     private Instant updatedAt;
 }
+
 
