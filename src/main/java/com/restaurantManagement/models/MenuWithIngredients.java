@@ -1,10 +1,7 @@
 package com.restaurantManagement.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.Instant;
 
@@ -13,6 +10,7 @@ import java.time.Instant;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class MenuWithIngredients {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,3 +26,4 @@ public class MenuWithIngredients {
     private Instant createdAt;
     private Instant updatedAt;
 }
+
