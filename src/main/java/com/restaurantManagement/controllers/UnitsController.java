@@ -1,10 +1,10 @@
 package com.restaurantManagement.controllers;
 
 import com.restaurantManagement.dto.UnitsDto;
-import com.restaurantManagement.models.Units;
+import com.restaurantManagement.dto.UnitsSummarized;
 import com.restaurantManagement.service.UnitService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,14 +14,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/units")
+@AllArgsConstructor
 public class UnitsController {
 
-    @Autowired
     private UnitService unitService;
 
     @PostMapping
-    public ResponseEntity<Units> createUnit(@Valid @RequestBody UnitsDto unitsDto) {
-        Units savedUnit = unitService.save(unitsDto);
+    public ResponseEntity<UnitsSummarized> createUnit(@Valid @RequestBody UnitsDto unitsDto) {
+        UnitsSummarized savedUnit = unitService.save(unitsDto);
+
         return new ResponseEntity<>(savedUnit, HttpStatus.CREATED);
     }
 }

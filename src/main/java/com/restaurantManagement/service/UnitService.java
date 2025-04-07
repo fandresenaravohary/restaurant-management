@@ -1,8 +1,8 @@
 package com.restaurantManagement.service;
 
 import com.restaurantManagement.dto.UnitsDto;
-import com.restaurantManagement.models.Units;
+import com.restaurantManagement.dto.UnitsSummarized;
 
 public interface UnitService {
-    Units save(UnitsDto unitsDto);
+    UnitsSummarized save(UnitsDto unitsDto);
 }
