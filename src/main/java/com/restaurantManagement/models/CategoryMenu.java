@@ -25,5 +25,16 @@ public class CategoryMenu {
     @Builder.Default
     @OneToMany(mappedBy = "categoryMenu")
     private List<Menu> menu = new ArrayList<>();
+
+    @PrePersist
+    public void onCreate() {
+        this.createdAt = Instant.now();
+        this.updatedAt = Instant.now();
+    }
+
+    @PreUpdate
+    public void onUpdate() {
+        this.updatedAt = Instant.now();
+    }
 }
 

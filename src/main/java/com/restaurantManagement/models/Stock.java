@@ -29,5 +29,16 @@ public class Stock {
     @Builder.Default
     @OneToMany(mappedBy = "stock")
     private List<StockHistory> stockHistories = new ArrayList<>();
+
+    @PrePersist
+    public void onCreate() {
+        this.createdAt = Instant.now();
+        this.updatedAt = Instant.now();
+    }
+
+    @PreUpdate
+    public void onUpdate() {
+        this.updatedAt = Instant.now();
+    }
 }
 

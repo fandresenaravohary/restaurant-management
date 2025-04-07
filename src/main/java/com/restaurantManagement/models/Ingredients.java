@@ -38,6 +38,17 @@ public class Ingredients {
 
     @OneToOne(mappedBy = "ingredient")
     private Stock stock;
+
+    @PrePersist
+    public void onCreate() {
+        this.createdAt = Instant.now();
+        this.updatedAt = Instant.now();
+    }
+
+    @PreUpdate
+    public void onUpdate() {
+        this.updatedAt = Instant.now();
+    }
 }
 
 

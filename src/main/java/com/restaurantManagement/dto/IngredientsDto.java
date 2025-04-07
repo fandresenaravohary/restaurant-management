@@ -5,8 +5,6 @@ import jakarta.validation.constraints.Size;
 import lombok.Builder;
 import lombok.Data;
 
-import java.time.Instant;
-
 @Data
 @Builder
 public class IngredientsDto {
@@ -24,9 +22,5 @@ public class IngredientsDto {
     @NotNull(message = "Unit ID is required")
     private Long unitsId;
 
-    @NotNull(message = "Category ID is required")
     private Long categoryIngredientsId;
-
-    private Instant createdAt;
-    private Instant updatedAt;
 }

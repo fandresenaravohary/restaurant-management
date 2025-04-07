@@ -25,6 +25,17 @@ public class CategoryIngredients {
     @Builder.Default
     @OneToMany(mappedBy = "categoryIngredients")
     private List<Ingredients> ingredients = new ArrayList<>();
+
+    @PrePersist
+    public void onCreate() {
+        this.createdAt = Instant.now();
+        this.updatedAt = Instant.now();
+    }
+
+    @PreUpdate
+    public void onUpdate() {
+        this.updatedAt = Instant.now();
+    }
 }
 
 
