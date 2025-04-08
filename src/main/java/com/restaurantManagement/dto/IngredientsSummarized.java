@@ -13,6 +13,8 @@ public class IngredientsSummarized {
     private String url;
     private String unitsName;
     private String categoryIngredientsName;
+    private Long stockId;
+    private Double stockQuantity;
     private Instant createdAt;
     private Instant updatedAt;
 }
