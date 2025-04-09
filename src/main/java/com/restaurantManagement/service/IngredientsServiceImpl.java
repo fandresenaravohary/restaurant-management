@@ -26,10 +26,7 @@ public class IngredientsServiceImpl implements IngredientsService{
 
     @Override
     public List<IngredientsSummarized> findAll() {
-        List<Ingredients> ingredientsList = ingredientsRepository.findAll();
-        return ingredientsList.stream()
-                .map(ingredientsMapper::convertToIngredientsSummarized)
-                .toList();
+        return ingredientsRepository.findAllIngredientsSummarized();
     }
 
     @Override
