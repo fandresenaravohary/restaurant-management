@@ -19,10 +19,14 @@ public class UnitsController {
     private final UnitService unitService;
 
     @PostMapping
-    public ResponseEntity<UnitsSummarized> createUnit(@Valid @RequestBody UnitsDto unitsDto) {
+    public ResponseEntity<UnitsSummarized> createOrUpdateUnit(@Valid @RequestBody UnitsDto unitsDto) {
         UnitsSummarized savedUnit = unitService.save(unitsDto);
-        return new ResponseEntity<>(savedUnit, HttpStatus.CREATED);
+
+        HttpStatus status = (unitsDto.getId() == null) ? HttpStatus.CREATED : HttpStatus.OK;
+
+        return ResponseEntity.status(status).body(savedUnit);
     }
+
 
     @GetMapping
     public ResponseEntity<List<UnitsSummarized>> getAllUnits() {

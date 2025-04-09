@@ -19,24 +19,22 @@ public class IngredientsController {
     private final IngredientsService ingredientsService;
 
     @PostMapping
-    public ResponseEntity<IngredientsSummarized> createOrUpdate(@Valid @RequestBody IngredientsDto ingredientsDto) {
+    public ResponseEntity<IngredientsSummarized> createOrUpdateIngredients(@Valid @RequestBody IngredientsDto ingredientsDto) {
         IngredientsSummarized savedIngredient = ingredientsService.save(ingredientsDto);
 
-        HttpStatus status = (ingredientsDto.getId() == null)
-                ? HttpStatus.CREATED
-                : HttpStatus.OK;
+        HttpStatus status = (ingredientsDto.getId() == null) ? HttpStatus.CREATED : HttpStatus.OK;
 
         return ResponseEntity.status(status).body(savedIngredient);
     }
 
     @GetMapping
-    public ResponseEntity<List<IngredientsSummarized>> findAll() {
+    public ResponseEntity<List<IngredientsSummarized>> findAllIngredients() {
         List<IngredientsSummarized> ingredients = ingredientsService.findAll();
         return ResponseEntity.ok(ingredients);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteIngredient(@PathVariable Long id) {
         ingredientsService.delete(id);
         return ResponseEntity.noContent().build();
     }
