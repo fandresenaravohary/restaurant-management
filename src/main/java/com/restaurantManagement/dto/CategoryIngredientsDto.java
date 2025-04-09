@@ -17,7 +17,7 @@ public class CategoryIngredientsDto {
     @Size(min = 1, max = 10, message = "Name must be between 1 and 10 characters")
     private String name;
 
-    @NotNull(message = "Abbreviation is required")
-    @Size(min = 1, max = 10, message = "Abbreviation must be between 1 and 10 characters")
-    private String abbreviation;
+    @NotNull(message = "Description is required")
+    @Size(min = 1, max = 10, message = "Description must be between 1 and 10 characters")
+    private String description;
 }
