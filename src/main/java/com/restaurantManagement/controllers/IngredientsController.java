@@ -19,9 +19,14 @@ public class IngredientsController {
     private final IngredientsService ingredientsService;
 
     @PostMapping
-    public ResponseEntity<IngredientsSummarized> create(@Valid @RequestBody IngredientsDto ingredientsDto) {
+    public ResponseEntity<IngredientsSummarized> createOrUpdate(@Valid @RequestBody IngredientsDto ingredientsDto) {
         IngredientsSummarized savedIngredient = ingredientsService.save(ingredientsDto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedIngredient);
+
+        HttpStatus status = (ingredientsDto.getId() == null)
+                ? HttpStatus.CREATED
+                : HttpStatus.OK;
+
+        return ResponseEntity.status(status).body(savedIngredient);
     }
 
     @GetMapping
