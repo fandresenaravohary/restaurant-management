@@ -20,13 +20,6 @@ public class StockHistoryServiceImpl implements StockHistoryService {
     private final StockHistoryMapper stockHistoryMapper;
 
     @Override
-    public StockHistorySummarized save(StockHistoryDto stockHistoryDto) {
-        StockHistory stockHistory = stockHistoryMapper.convertToStockHistory(stockHistoryDto);
-        StockHistory saved = stockHistoryRepository.save(stockHistory);
-        return stockHistoryMapper.convertToStockHistorySummarized(saved);
-    }
-
-    @Override
     public List<StockHistorySummarized> findAll() {
         return stockHistoryRepository.findAll()
                 .stream()
@@ -34,11 +27,4 @@ public class StockHistoryServiceImpl implements StockHistoryService {
                 .collect(Collectors.toList());
     }
 
-    @Override
-    public void delete(Long id) {
-        if (!stockHistoryRepository.existsById(id)) {
-            throw new RuntimeException("Stock not found with id: " + id);
-        }
-        stockHistoryRepository.deleteById(id);
-    }
 }
