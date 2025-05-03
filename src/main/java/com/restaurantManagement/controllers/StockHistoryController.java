@@ -1,11 +1,8 @@
 package com.restaurantManagement.controllers;
 
-import com.restaurantManagement.dto.StockHistoryDto;
-import com.restaurantManagement.dto.StockHistorySummarized;
+import com.restaurantManagement.summarized.StockHistorySummarized;
 import com.restaurantManagement.service.StockHistoryService;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

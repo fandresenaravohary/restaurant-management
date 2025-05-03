@@ -1,7 +1,7 @@
 package com.restaurantManagement.controllers;
 
 import com.restaurantManagement.dto.IngredientsDto;
-import com.restaurantManagement.dto.IngredientsSummarized;
+import com.restaurantManagement.summarized.IngredientsSummarized;
 import com.restaurantManagement.service.IngredientsService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

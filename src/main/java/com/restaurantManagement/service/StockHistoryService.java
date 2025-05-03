@@ -1,6 +1,6 @@
 package com.restaurantManagement.service;
 
-import com.restaurantManagement.dto.StockHistorySummarized;
+import com.restaurantManagement.summarized.StockHistorySummarized;
 
 import java.util.List;
 

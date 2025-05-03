@@ -1,7 +1,8 @@
-package com.restaurantManagement.service;
+package com.restaurantManagement.service.Impl;
 
 import com.restaurantManagement.dto.UnitsDto;
-import com.restaurantManagement.dto.UnitsSummarized;
+import com.restaurantManagement.service.UnitService;
+import com.restaurantManagement.summarized.UnitsSummarized;
 import com.restaurantManagement.mapper.UnitsMapper;
 import com.restaurantManagement.models.Units;
 import com.restaurantManagement.repository.UnitsRepository;

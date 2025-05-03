@@ -1,4 +1,4 @@
-package com.restaurantManagement.dto;
+package com.restaurantManagement.summarized;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,10 +11,12 @@ import java.time.Instant;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UnitsSummarized {
+public class StockHistorySummarized {
     private Long id;
-    private String name;
-    private String abbreviation;
+    private Long stockId;
+    private String operationType;
+    private Double quantity;
+    private Instant date;
     private Instant createdAt;
     private Instant updatedAt;
 }

@@ -1,4 +1,4 @@
-package com.restaurantManagement.dto;
+package com.restaurantManagement.summarized;
 
 import lombok.Builder;
 import lombok.Data;

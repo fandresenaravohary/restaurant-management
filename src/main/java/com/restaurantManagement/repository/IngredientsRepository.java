@@ -1,6 +1,6 @@
 package com.restaurantManagement.repository;
 
-import com.restaurantManagement.dto.IngredientsSummarized;
+import com.restaurantManagement.summarized.IngredientsSummarized;
 import com.restaurantManagement.models.Ingredients;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -12,7 +12,7 @@ import java.util.List;
 public interface IngredientsRepository extends JpaRepository<Ingredients, Long> {
 
     @Query("""
-        SELECT new com.restaurantManagement.dto.IngredientsSummarized(
+        SELECT new com.restaurantManagement.summarized.IngredientsSummarized(
             i.id,
             i.name,
             i.url,

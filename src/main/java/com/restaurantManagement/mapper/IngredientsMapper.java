@@ -1,7 +1,7 @@
 package com.restaurantManagement.mapper;
 
 import com.restaurantManagement.dto.IngredientsDto;
-import com.restaurantManagement.dto.IngredientsSummarized;
+import com.restaurantManagement.summarized.IngredientsSummarized;
 import com.restaurantManagement.models.CategoryIngredients;
 import com.restaurantManagement.models.Ingredients;
 import com.restaurantManagement.models.Units;

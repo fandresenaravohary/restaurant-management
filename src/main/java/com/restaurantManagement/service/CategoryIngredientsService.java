@@ -1,7 +1,7 @@
 package com.restaurantManagement.service;
 
 import com.restaurantManagement.dto.CategoryIngredientsDto;
-import com.restaurantManagement.dto.CategoryIngredientsSummarized;
+import com.restaurantManagement.summarized.CategoryIngredientsSummarized;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
 package com.restaurantManagement.service;
 
 import com.restaurantManagement.dto.UnitsDto;
-import com.restaurantManagement.dto.UnitsSummarized;
+import com.restaurantManagement.summarized.UnitsSummarized;
 
 import java.util.List;
 

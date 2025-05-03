@@ -1,7 +1,8 @@
-package com.restaurantManagement.service;
+package com.restaurantManagement.service.Impl;
 
 import com.restaurantManagement.dto.StockDto;
-import com.restaurantManagement.dto.StockSummarized;
+import com.restaurantManagement.service.StockService;
+import com.restaurantManagement.summarized.StockSummarized;
 import com.restaurantManagement.mapper.StockMapper;
 import com.restaurantManagement.models.Stock;
 import com.restaurantManagement.repository.StockRepository;

@@ -1,7 +1,7 @@
 package com.restaurantManagement.service;
 
 import com.restaurantManagement.dto.CategoryMenuDto;
-import com.restaurantManagement.dto.CategoryMenuSummarized;
+import com.restaurantManagement.summarized.CategoryMenuSummarized;
 
 import java.util.List;
 

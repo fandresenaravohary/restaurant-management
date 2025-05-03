@@ -1,7 +1,8 @@
-package com.restaurantManagement.service;
+package com.restaurantManagement.service.Impl;
 
 import com.restaurantManagement.dto.CategoryIngredientsDto;
-import com.restaurantManagement.dto.CategoryIngredientsSummarized;
+import com.restaurantManagement.service.CategoryIngredientsService;
+import com.restaurantManagement.summarized.CategoryIngredientsSummarized;
 import com.restaurantManagement.mapper.CategoryIngredientsMapper;
 import com.restaurantManagement.models.CategoryIngredients;
 import com.restaurantManagement.repository.CategoryIngredientsRepository;
@@ -13,7 +14,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class CategoryIngredientsServiceImpl implements CategoryIngredientsService{
+public class CategoryIngredientsServiceImpl implements CategoryIngredientsService {
 
     private final CategoryIngredientsRepository categoryIngredientsRepository;
     private final CategoryIngredientsMapper categoryIngredientsMapper;

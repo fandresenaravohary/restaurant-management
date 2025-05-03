@@ -1,7 +1,7 @@
 package com.restaurantManagement.mapper;
 
 import com.restaurantManagement.dto.CategoryMenuDto;
-import com.restaurantManagement.dto.CategoryMenuSummarized;
+import com.restaurantManagement.summarized.CategoryMenuSummarized;
 import com.restaurantManagement.models.CategoryMenu;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

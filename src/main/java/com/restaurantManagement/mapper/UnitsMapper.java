@@ -1,7 +1,7 @@
 package com.restaurantManagement.mapper;
 
 import com.restaurantManagement.dto.UnitsDto;
-import com.restaurantManagement.dto.UnitsSummarized;
+import com.restaurantManagement.summarized.UnitsSummarized;
 import com.restaurantManagement.models.Units;
 import org.springframework.stereotype.Component;
 

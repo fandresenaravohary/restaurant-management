@@ -1,7 +1,7 @@
 package com.restaurantManagement.controllers;
 
 import com.restaurantManagement.dto.CategoryMenuDto;
-import com.restaurantManagement.dto.CategoryMenuSummarized;
+import com.restaurantManagement.summarized.CategoryMenuSummarized;
 import com.restaurantManagement.service.CategoryMenuService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

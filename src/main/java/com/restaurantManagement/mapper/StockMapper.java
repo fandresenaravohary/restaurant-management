@@ -1,7 +1,7 @@
 package com.restaurantManagement.mapper;
 
 import com.restaurantManagement.dto.StockDto;
-import com.restaurantManagement.dto.StockSummarized;
+import com.restaurantManagement.summarized.StockSummarized;
 import com.restaurantManagement.models.Ingredients;
 import com.restaurantManagement.models.Stock;
 import com.restaurantManagement.repository.IngredientsRepository;
