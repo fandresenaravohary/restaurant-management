@@ -14,7 +14,7 @@ public class CategoryIngredientsDto {
     private Long id;
 
     @NotNull(message = "Name is required")
-    @Size(min = 1, max = 10, message = "Name must be between 1 and 10 characters")
+    @Size(min = 1, max = 100, message = "Name must be between 1 and 100 characters")
     private String name;
 
     private String description;

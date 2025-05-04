@@ -3,9 +3,11 @@ package com.restaurantManagement.mapper;
 import com.restaurantManagement.dto.CategoryIngredientsDto;
 import com.restaurantManagement.summarized.CategoryIngredientsSummarized;
 import com.restaurantManagement.models.CategoryIngredients;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class CategoryIngredientsMapper {
 
     public CategoryIngredientsSummarized convertToCategoryIngredientsSummarized(CategoryIngredients categoryIngredients) {

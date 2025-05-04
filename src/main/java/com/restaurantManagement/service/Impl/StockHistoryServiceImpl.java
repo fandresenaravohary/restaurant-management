@@ -1,10 +1,8 @@
 package com.restaurantManagement.service.Impl;
 
-import com.restaurantManagement.dto.StockHistoryDto;
 import com.restaurantManagement.service.StockHistoryService;
 import com.restaurantManagement.summarized.StockHistorySummarized;
 import com.restaurantManagement.mapper.StockHistoryMapper;
-import com.restaurantManagement.models.StockHistory;
 import com.restaurantManagement.repository.StockHistoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
