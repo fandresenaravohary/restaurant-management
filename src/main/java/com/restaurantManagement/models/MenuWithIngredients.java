@@ -24,6 +24,7 @@ public class MenuWithIngredients {
     @JoinColumn(name = "ingredient_id")
     private Ingredients ingredient;
 
+    private Double quantity;
     private Instant createdAt;
     private Instant updatedAt;
 
