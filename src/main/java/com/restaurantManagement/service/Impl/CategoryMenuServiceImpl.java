@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class CategoryMenuImpl implements CategoryMenuService {
+public class CategoryMenuServiceImpl implements CategoryMenuService {
 
     private final CategoryMenuMapper categoryMenuMapper;
     private final CategoryMenuRepository categoryMenuRepository;

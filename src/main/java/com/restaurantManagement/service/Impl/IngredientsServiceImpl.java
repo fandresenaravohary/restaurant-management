@@ -27,6 +27,7 @@ public class IngredientsServiceImpl implements IngredientsService {
     public IngredientsSummarized save(IngredientsDto ingredientsDto) {
         Ingredients ingredients = ingredientsMapper.convertToIngredients(ingredientsDto);
         Ingredients saved = ingredientsRepository.save(ingredients);
+
         if (ingredientsDto.getId() == null) {
             Stock stock = Stock.builder()
                     .ingredient(saved)
@@ -37,12 +38,9 @@ public class IngredientsServiceImpl implements IngredientsService {
             saved.setStock(savedStock);
         }
 
-
-        Ingredients reloaded = ingredientsRepository.findById(saved.getId())
-                .orElseThrow(() -> new RuntimeException("Ingredients not found after save"));
-
-        return ingredientsMapper.convertToIngredientsSummarized(reloaded);
+        return ingredientsMapper.convertToIngredientsSummarized(saved);
     }
+
 
 
     @Override
