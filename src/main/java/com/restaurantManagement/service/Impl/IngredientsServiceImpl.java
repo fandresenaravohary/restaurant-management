@@ -27,16 +27,21 @@ public class IngredientsServiceImpl implements IngredientsService {
     public IngredientsSummarized save(IngredientsDto ingredientsDto) {
         Ingredients ingredients = ingredientsMapper.convertToIngredients(ingredientsDto);
         Ingredients saved = ingredientsRepository.save(ingredients);
-
         if (ingredientsDto.getId() == null) {
             Stock stock = Stock.builder()
                     .ingredient(saved)
                     .quantity(0.0)
                     .build();
-            stockRepository.save(stock);
+            Stock savedStock = stockRepository.save(stock);
+
+            saved.setStock(savedStock);
         }
 
-        return ingredientsMapper.convertToIngredientsSummarized(saved);
+
+        Ingredients reloaded = ingredientsRepository.findById(saved.getId())
+                .orElseThrow(() -> new RuntimeException("Ingredients not found after save"));
+
+        return ingredientsMapper.convertToIngredientsSummarized(reloaded);
     }
 
 

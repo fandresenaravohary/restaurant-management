@@ -1,6 +1,5 @@
 package com.restaurantManagement.service.Impl;
 
-import com.restaurantManagement.dto.StockDto;
 import com.restaurantManagement.service.StockService;
 import com.restaurantManagement.summarized.StockSummarized;
 import com.restaurantManagement.mapper.StockMapper;
@@ -20,6 +19,7 @@ public class StockServiceImpl implements StockService {
     private final StockRepository stockRepository;
     private final StockMapper stockMapper;
 
+    @Override
     @Transactional
     public void addStock(Long ingredientId, double quantity) {
         Stock stock = stockRepository.findByIngredientId(ingredientId)

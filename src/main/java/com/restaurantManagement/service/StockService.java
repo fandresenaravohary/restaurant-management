@@ -6,5 +6,6 @@ import com.restaurantManagement.summarized.StockSummarized;
 import java.util.List;
 
 public interface StockService {
+    void addStock(Long ingredientId, double quantity);
     List<StockSummarized> findAll();
 }

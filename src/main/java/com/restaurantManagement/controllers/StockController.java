@@ -1,11 +1,8 @@
 package com.restaurantManagement.controllers;
 
-import com.restaurantManagement.dto.StockDto;
 import com.restaurantManagement.summarized.StockSummarized;
 import com.restaurantManagement.service.StockService;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,13 +15,12 @@ public class StockController {
 
     private final StockService stockService;
 
-    @PostMapping
-    public ResponseEntity<StockSummarized> createOrUpdateStock(@Valid @RequestBody StockDto stockDto) {
-        StockSummarized savedStock = stockService.save(stockDto);
-
-        HttpStatus status = (stockDto.getId() == null) ? HttpStatus.CREATED : HttpStatus.OK;
-
-        return ResponseEntity.status(status).body(savedStock);
+    @PostMapping("/add")
+    public ResponseEntity<Void> addStock(
+            @RequestParam Long ingredientId,
+            @RequestParam double quantity) {
+        stockService.addStock(ingredientId, quantity);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping
@@ -33,9 +29,4 @@ public class StockController {
         return ResponseEntity.ok(stocks);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteStock(@PathVariable Long id) {
-        stockService.delete(id);
-        return ResponseEntity.noContent().build();
-    }
 }
