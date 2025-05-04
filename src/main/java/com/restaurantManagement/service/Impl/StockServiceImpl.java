@@ -6,6 +6,7 @@ import com.restaurantManagement.summarized.StockSummarized;
 import com.restaurantManagement.mapper.StockMapper;
 import com.restaurantManagement.models.Stock;
 import com.restaurantManagement.repository.StockRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,12 +20,15 @@ public class StockServiceImpl implements StockService {
     private final StockRepository stockRepository;
     private final StockMapper stockMapper;
 
-    @Override
-    public StockSummarized save(StockDto stockDto) {
-        Stock stock = stockMapper.convertToStock(stockDto);
-        Stock saved = stockRepository.save(stock);
-        return stockMapper.convertToStockSummarized(saved);
+    @Transactional
+    public void addStock(Long ingredientId, double quantity) {
+        Stock stock = stockRepository.findByIngredientId(ingredientId)
+                .orElseThrow(() -> new RuntimeException("Stock not found for ingredient ID: " + ingredientId));
+
+        stock.setQuantity(stock.getQuantity() + quantity);
+        stockRepository.save(stock);
     }
+
 
     @Override
     public List<StockSummarized> findAll() {
@@ -32,14 +36,6 @@ public class StockServiceImpl implements StockService {
                 .stream()
                 .map(stockMapper::convertToStockSummarized)
                 .collect(Collectors.toList());
-    }
-
-    @Override
-    public void delete(Long id) {
-        if (!stockRepository.existsById(id)) {
-            throw new RuntimeException("Stock not found with id: " + id);
-        }
-        stockRepository.deleteById(id);
     }
 }
 
