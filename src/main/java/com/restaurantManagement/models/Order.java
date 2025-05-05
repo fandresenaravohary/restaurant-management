@@ -18,21 +18,19 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "menu_id")
+    private Menu menu;
+
+    private Double buyingPrice;
+    private Integer quantity;
+
     private Instant orderTime;
     private String status;
 
     @ManyToOne
     @JoinColumn(name = "table_id")
     private TableRestaurant table;
-
-    @Builder.Default
-    @ManyToMany
-    @JoinTable(
-            name = "order_menu",
-            joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "menu_id")
-    )
-    private List<Menu> menus = new ArrayList<>();
 
     private Instant createdAt;
     private Instant updatedAt;
@@ -49,4 +47,5 @@ public class Order {
         this.updatedAt = Instant.now();
     }
 }
+
 
