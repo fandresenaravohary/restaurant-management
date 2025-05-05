@@ -33,6 +33,10 @@ public class Menu {
     @OneToMany(mappedBy = "menu")
     private List<MenuWithIngredients> menuWithIngredients = new ArrayList<>();
 
+    @Builder.Default
+    @OneToMany(mappedBy = "menu")
+    private List<Order> orders = new ArrayList<>();
+
     @PrePersist
     public void onCreate() {
         this.createdAt = Instant.now();
@@ -44,4 +48,5 @@ public class Menu {
         this.updatedAt = Instant.now();
     }
 }
+
 
