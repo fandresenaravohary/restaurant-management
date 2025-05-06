@@ -11,5 +11,4 @@ public class TableRestaurantDto {
     private Long id;
     private int number;
     private String status;
-    private List<OrderDto> orders;
 }
