@@ -22,11 +22,8 @@ public class Order {
     @JoinColumn(name = "menu_id")
     private Menu menu;
 
-    private Double buyingPrice;
-    private Integer quantity;
-
-    private Instant orderTime;
-    private String status;
+    private int price;
+    private Double quantity;
 
     @ManyToOne
     @JoinColumn(name = "table_id")
@@ -39,7 +36,6 @@ public class Order {
     public void onCreate() {
         this.createdAt = Instant.now();
         this.updatedAt = Instant.now();
-        this.orderTime = Instant.now();
     }
 
     @PreUpdate

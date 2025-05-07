@@ -18,8 +18,8 @@ public class TableRestaurant {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int number;
-    private String status;
+    private int numberTable;
+    private int capacityMax;
 
     @Builder.Default
     @OneToMany(mappedBy = "table")

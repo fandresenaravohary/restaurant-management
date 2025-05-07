@@ -9,6 +9,6 @@ import java.util.List;
 @Builder
 public class TableRestaurantDto {
     private Long id;
-    private int number;
-    private String status;
+    private int numberTable;
+    private int capacityMax;
 }

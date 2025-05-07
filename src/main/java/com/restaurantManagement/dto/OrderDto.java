@@ -9,8 +9,8 @@ import java.time.Instant;
 @Builder
 public class OrderDto {
     private Long id;
-    private Double buyingPrice;
-    private Integer quantity;
-    private Instant orderTime;
-    private String status;
+    private int price;
+    private Double quantity;
+    private Long menuId;
+    private Long tableId;
 }
