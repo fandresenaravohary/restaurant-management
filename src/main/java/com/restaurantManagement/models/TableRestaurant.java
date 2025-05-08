@@ -20,6 +20,7 @@ public class TableRestaurant {
 
     private int numberTable;
     private int capacityMax;
+    private String status;
 
     @Builder.Default
     @OneToMany(mappedBy = "table")

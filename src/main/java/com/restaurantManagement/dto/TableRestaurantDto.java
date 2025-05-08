@@ -11,4 +11,5 @@ public class TableRestaurantDto {
     private Long id;
     private int numberTable;
     private int capacityMax;
+    private String status;
 }
